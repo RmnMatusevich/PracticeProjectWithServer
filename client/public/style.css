@@ -1,0 +1,503 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  border-top: 5px solid rgba(74, 200, 0, 0.97);
+  width: 100%;
+  position: relative;
+  height: 85px;
+  background-color: rgba(38, 38, 38, 0.97);
+  margin-bottom: 150px;
+}
+
+.logo {
+  position: absolute;
+  left: 10%;
+}
+
+.logo-image {
+  width: 220px;
+  display: block;
+  position: absolute;
+  top: 15px;
+}
+
+.logo-text {
+  font-family: "Open Sans", sans-serif;
+  position: absolute;
+  top: 40px;
+  left: 225px;
+  width: 70px;
+  color: rgba(125, 125, 125, 0.97);
+}
+
+.navigation__active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  background-color: black;
+}
+
+.navigation {
+  width: 600px;
+  position: absolute;
+  right: 10%;
+}
+
+.navigation-item {
+  display: inline;
+  color: white;
+}
+
+.navigation-item__link {
+  height: 52px;
+  padding-top: 34px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  outline: none;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.navigation-item__link:hover {
+  background-color: rgba(74, 200, 0, 0.97);
+  transition: 300ms ease;
+}
+
+@media (max-width: 1150px) {
+  .logo {
+    left: 40px;
+  }
+  .navigation {
+    right: 40px;
+  }
+}
+
+.main-projects {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-projects__title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.main-projects__description {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  margin-bottom: 80px;
+}
+
+#search {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 50%;
+  height: 140px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#search-label {
+  font-size: 38px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+#search-input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 36px;
+  height: 40px;
+  border: 2px solid black;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+#search-input:focus {
+  background-color: rgb(224, 255, 214);
+}
+
+.collage {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 50px;
+  max-width: 1200px;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+.collage-item {
+  width: 350px;
+  height: 440px;
+  border: 1px solid rgba(100, 100, 100, 0.77);
+  margin-bottom: 15px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}
+.collage-item:hover {
+  color: rgba(9, 9, 9, 0.77);
+  transition: 300ms ease;
+  box-shadow: 0 5px 10px rgba(9, 9, 9, 0.77);
+}
+
+.collage-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 120px;
+  padding-top: 60px;
+  margin-bottom: 30px;
+}
+
+.collage-tittle {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.collage-description {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  width: 70%;
+  font-size: 18px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    display: none;
+  }
+  .logo-image {
+    width: 150px;
+  }
+  .logo-text {
+    display: none;
+  }
+  nav {
+    height: 60px;
+  }
+  .logo {
+    top: -5px;
+    left: 5%;
+  }
+
+  #search {
+    width: 100%;
+  }
+  #search-input {
+    width: 100%;
+  }
+
+  /* .mob-menu {
+    height: 100%;
+  }
+*/
+  .mob-navigation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    background-color: black;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .navigation-item__link {
+    width: 100%;
+    padding-top: 34px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    outline: none;
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 26px;
+    text-transform: uppercase;
+  }
+
+  .menu-button {
+    display: block;
+    z-index: 11;
+    width: 35px;
+    height: 25px;
+    position: fixed;
+    top: 20px;
+    right: 5%;
+    cursor: pointer;
+  }
+  .menu-button span,
+  .menu-button span:before,
+  .menu-button span:after {
+    position: absolute;
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    transform: translateY(10px);
+  }
+  .menu-button span:before,
+  .menu-button span:after {
+    content: "";
+  }
+
+  .menu-button span:before {
+    transform: translateY(-10px);
+  }
+
+  .menu-button span:after {
+    transform: translateY(10px);
+  }
+
+  .main-projects {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav {
+    margin-bottom: 40px;
+  }
+  .collage {
+    width: 100%;
+    flex-direction: column;
+  }
+  .collage-item {
+    width: 100%;
+    height: 330px;
+    margin-left: 0;
+  }
+  .collage-image {
+    padding-top: 40px;
+    height: 100px;
+  }
+  .collage-tittle {
+    font-size: 20px;
+  }
+
+  .collage-description {
+    font-size: 14px;
+  }
+}
+
+/*    ADD NEW BLOCK TO THE COLLAGE    */
+
+.text {
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  font-size: 20px;
+  border-radius: 0px 0px 20px 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+
+#adding-collage {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  text-align: center;
+  height: 500px;
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px 10px 80px 80px;
+  margin-bottom: 20px;
+}
+#adding-collage label {
+  font-size: 26px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+}
+#photo-src {
+  height: 40px;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 26px;
+  width: 80%;
+  margin: 0 auto;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+#photo-src:focus {
+  background-color: rgb(224, 255, 214);
+}
+
+#title-input {
+  height: 40px;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 26px;
+  width: 80%;
+  margin: 0 auto;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+#title-input:focus {
+  background-color: rgb(224, 255, 214);
+}
+
+#description-input {
+  height: 40px;
+  border-radius: 15px;
+  border: 2px solid black;
+  font-size: 26px;
+  width: 80%;
+  margin: 0 auto;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+#description-input:focus {
+  background-color: rgb(224, 255, 214);
+}
+
+#submit-button {
+  width: 200px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 26px;
+  outline: none;
+}
+
+/*    LOGIN:    */
+
+.login {
+  width: 100%;
+}
+
+.green-blur {
+  position: absolute;
+  top: -200px;
+  width: 100%;
+  height: 500px;
+  background-image: url("./images/IntersectComp.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login-form {
+  margin-top: 600px;
+  width: 500px;
+  height: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#username {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+#password {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 40px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+#login-submit {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin: 0 auto;
+  font-weight: 600;
+  background: #4fca08;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+#login-submit:hover {
+  border: 1px solid black;
+  color: white;
+  background: black;
+}
+
+.login-form__label {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .green-blur {
+    position: absolute;
+    top: -150px;
+    width: 100%;
+    height: 452px;
+    background-image: url("./images/Intersect.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .login {
+  }
+
+  .#login-form {
+  }
+
+  #username {
+    font-size: 16px;
+  }
+
+  #password {
+    font-size: 16px;
+  }
+
+  #login-submit {
+  }
+
+  .login-form__label {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    line-height: 19px;
+  }
+}
