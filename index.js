@@ -50,13 +50,13 @@ const obj = {
 };
 app.use(express.static(path.join(__dirname, "/client/public/index.html")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/public/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/public/index.html"));
+// });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/public/index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/public/index.html"));
+// });
 
 app.get("/getCollage", (req, res) => {
   res.json(obj);
