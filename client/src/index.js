@@ -4,7 +4,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./components/redux/store";
 
-fetch("/getCollage").then((res) => console.log(res.json()));
 ReactDOM.render(
   <Provider store={store}>
     <App />
