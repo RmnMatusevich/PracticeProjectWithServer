@@ -9,6 +9,7 @@ import {
   setTittleThunk,
 } from "./redux/actions/collageActions";
 import obj from "./collageObject";
+import axios from "axios";
 
 function Collage() {
   const dispatch = useDispatch();
@@ -19,28 +20,15 @@ function Collage() {
 
   const handleChange = (input) => {
     dispatch(setUserInputThunk(input));
-    const newCollageObj = [];
-    for (let item of obj.collage) {
-      if (item.description.toLocaleLowerCase().includes(input)) {
-        newCollageObj.push(item);
-      }
-    }
-    dispatch(setCollageThunk(newCollageObj));
+    axios.post("/searchCollage", { input }).then((res) => {
+      dispatch(setCollageThunk(res.data));
+    });
   };
 
   const btnClick = () => {
-    let newObj = [...collage];
-    obj.collage.push({
-      src: image,
-      tittle: tittle,
-      description: description,
+    axios.post("/addCollage", { image, tittle, description }).then((res) => {
+      dispatch(setCollageThunk(res.data.collage));
     });
-    newObj.push({
-      src: image,
-      tittle: tittle,
-      description: description,
-    });
-    dispatch(setCollageThunk(newObj));
   };
   return (
     <React.Fragment>

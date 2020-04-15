@@ -6,6 +6,7 @@ import {
   setPasswordThunk,
   setUsernameThunk,
 } from "./redux/actions/loginActions";
+import axios from "axios";
 
 function Login() {
   const dispatch = useDispatch();
@@ -15,13 +16,14 @@ function Login() {
 
   const click = (event) => {
     event.preventDefault();
-    if (username === "admin" && password === "1234") {
-      dispatch(setAuthorisedThunk(true));
-    }
+    axios.post("/login", { username, password }).then((res) => {
+      if (res.data.auth) {
+        dispatch(setAuthorisedThunk(true));
+      }
+    });
   };
   if (authorised) {
     return <Redirect to="./Projects" />;
-  } else {
   }
 
   return (

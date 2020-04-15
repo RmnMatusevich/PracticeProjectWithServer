@@ -1,11 +1,13 @@
-import obj from "../../collageObject";
-
+import getCollageAPI from "../../../requests/getCollageAPI";
+getCollageAPI().then((res) => {
+  initialState.collageCollage = [...res.collage];
+});
 const initialState = {
   collageUserInput: "",
   collageImage: "",
   collageTittle: "",
   collageDescription: "",
-  collageCollage: [...obj.collage],
+  collageCollage: [],
 };
 
 const collageReducer = (state = initialState, action) => {
