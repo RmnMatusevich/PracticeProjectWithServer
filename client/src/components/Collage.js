@@ -1,5 +1,6 @@
 import React from "react";
 import CollageItem from "./CollageItem";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setCollageThunk,
@@ -7,8 +8,10 @@ import {
   setUserInputThunk,
   setImageThunk,
   setTittleThunk,
-} from "./redux/actions/collageActions";
+} from "../redux/actions/collageActions";
 import obj from "./collageObject";
+import getCollageAPI from "../requests/getCollageAPI";
+
 import axios from "axios";
 
 function Collage() {
@@ -17,6 +20,10 @@ function Collage() {
   const tittle = useSelector((state) => state.collage.collageTittle);
   const description = useSelector((state) => state.collage.collageDescription);
   const collage = useSelector((state) => state.collage.collageCollage);
+
+  useEffect(() => {
+    getCollageAPI().then((res) => dispatch(setCollageThunk(res.collage)));
+  }, []);
 
   const handleChange = (input) => {
     dispatch(setUserInputThunk(input));

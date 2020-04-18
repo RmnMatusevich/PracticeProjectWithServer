@@ -2,6 +2,7 @@ import {
   ACTION_CHANGE_AUTHORISED,
   ACTION_CHANGE_PASSWORD,
   ACTION_CHANGE_USERNAME,
+  ACTION_CHANGE_REDIRECT,
 } from "../globalVariables";
 
 function setUsernameThunk(username) {
@@ -28,6 +29,14 @@ function setAuthorisedThunk(auth) {
     console.log(`After update ${getState().login.loginAuthorised}`);
   };
 }
+function setRedirectThunk(auth) {
+  return (dispatch, getState) => {
+    console.log(`Action type: ${setRedirect(auth).type}`);
+    console.log(`Before update ${getState().login.loginAuthorised}`);
+    dispatch(setRedirect(auth));
+    console.log(`After update ${getState().login.loginAuthorised}`);
+  };
+}
 function setUsername(username) {
   return {
     type: ACTION_CHANGE_USERNAME,
@@ -49,4 +58,16 @@ function setAuthorised(auth) {
   };
 }
 
-export { setUsernameThunk, setPasswordThunk, setAuthorisedThunk };
+function setRedirect(auth) {
+  return {
+    type: ACTION_CHANGE_REDIRECT,
+    auth,
+  };
+}
+
+export {
+  setUsernameThunk,
+  setPasswordThunk,
+  setAuthorisedThunk,
+  setRedirectThunk,
+};

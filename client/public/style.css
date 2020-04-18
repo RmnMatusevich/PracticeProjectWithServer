@@ -441,19 +441,31 @@ nav {
   border-radius: 7px;
   outline: none;
 }
-
+.auth-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 #login-submit {
-  width: 100%;
+  width: 48%;
   height: 50px;
   font-family: "Open Sans", sans-serif;
   font-size: 26px;
-  margin: 0 auto;
   font-weight: 600;
   background: #4fca08;
   border-radius: 10px;
   transition: 0.3s ease;
 }
-
+#sign-up-redirect {
+  width: 48%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  background: #4fca08;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
 #login-submit:hover {
   border: 1px solid black;
   color: white;
@@ -500,4 +512,110 @@ nav {
     font-size: 20px;
     line-height: 19px;
   }
+}
+
+.sign-up {
+}
+
+#green-blur__sign-up {
+  top: -400px;
+}
+
+#sign-up-form {
+  padding-top: 100px;
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-up-form__label {
+  display: block;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+#sign-up-form__username {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+#sign-up-form__password {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+#sign-up-form__password-repeat {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+#sign-up-form__firstName {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+#sign-up-form__lastName {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 10px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+#sign-up-form__age {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin-bottom: 30px;
+  border: 1px solid #5c5c5c;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+#sign-up-submit {
+  width: 100%;
+  height: 50px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  margin: 0 auto;
+  font-weight: 600;
+  background: #4fca08;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  margin-bottom: 50px;
 }

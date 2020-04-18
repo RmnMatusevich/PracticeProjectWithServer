@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import NavigationItem from "./NavigationItem";
 import Logo from "./Logo";
-import { setVisibilityThunk } from "./redux/actions/navActions";
+import { setVisibilityThunk } from "../redux/actions/navActions";
 
 const nav = {
   obj: ["Projects", "Guides", "Blog", "Training and Certification"],

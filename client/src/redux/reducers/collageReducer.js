@@ -1,7 +1,3 @@
-import getCollageAPI from "../../../requests/getCollageAPI";
-getCollageAPI().then((res) => {
-  initialState.collageCollage = [...res.collage];
-});
 const initialState = {
   collageUserInput: "",
   collageImage: "",

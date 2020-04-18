@@ -1,11 +1,13 @@
 import React from "react";
+
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setAuthorisedThunk,
   setPasswordThunk,
   setUsernameThunk,
-} from "./redux/actions/loginActions";
+  setRedirectThunk,
+} from "../redux/actions/loginActions";
 import axios from "axios";
 
 function Login() {
@@ -13,7 +15,7 @@ function Login() {
   const authorised = useSelector((state) => state.login.loginAuthorised);
   const username = useSelector((state) => state.login.loginUsername);
   const password = useSelector((state) => state.login.loginPassword);
-
+  const redirect = useSelector((state) => state.login.loginRedirect);
   const click = (event) => {
     event.preventDefault();
     axios.post("/login", { username, password }).then((res) => {
@@ -25,9 +27,15 @@ function Login() {
   if (authorised) {
     return <Redirect to="./Projects" />;
   }
-
+  const signUpRedirect = (event) => {
+    event.preventDefault();
+    dispatch(setRedirectThunk(true));
+  };
+  if (redirect) {
+    return <Redirect to="./SignUp" />;
+  }
   return (
-    <section className="login" onSubmit={click}>
+    <section className="login">
       <div className="green-blur"></div>
       <form id="login-form">
         <label className="login-form__label">Username</label>
@@ -41,7 +49,19 @@ function Login() {
           type="password"
           onChange={(event) => dispatch(setPasswordThunk(event.target.value))}
         ></input>
-        <button id="login-submit">Log In</button>
+        <div className="auth-buttons">
+          <button id="login-submit" onClick={click}>
+            Log In
+          </button>
+          <button
+            id="sign-up-redirect"
+            onClick={(event) => {
+              signUpRedirect(event);
+            }}
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
     </section>
   );
