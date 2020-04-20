@@ -45,4 +45,4 @@ const obj = {
   ],
 };
 
-export default obj;
+module.exports = obj;
