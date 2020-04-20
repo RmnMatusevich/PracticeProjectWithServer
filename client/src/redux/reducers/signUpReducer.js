@@ -5,6 +5,7 @@ import {
   ACTION_CHANGE_SIGN_UP_FIRST_NAME,
   ACTION_CHANGE_SIGN_UP_LAST_NAME,
   ACTION_CHANGE_SIGN_UP_AGE,
+  ACTION_CHANGE_SIGN_UP_REDIRECT,
 } from "../globalVariables";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   signUpFirstName: "",
   signUpLastName: "",
   signUpAge: "",
+  singUpRedirect: false,
 };
 
 const signUpReducer = (state = initialState, action) => {
@@ -30,6 +32,8 @@ const signUpReducer = (state = initialState, action) => {
       return { ...state, signUpLastName: action.lastName };
     case ACTION_CHANGE_SIGN_UP_AGE:
       return { ...state, signUpAge: action.age };
+    case ACTION_CHANGE_SIGN_UP_REDIRECT:
+      return { ...state, singUpRedirect: action.red };
     default:
       return state;
   }

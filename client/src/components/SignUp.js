@@ -1,5 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 import {
   setUsernameThunk,
   setPasswordThunk,
@@ -7,23 +9,39 @@ import {
   setFirstNameThunk,
   setLastNameThunk,
   setAgeThunk,
+  setRedirectThunk,
 } from "../redux/actions/signUpActions";
+import axios from "axios";
 
 function SignUp() {
   const dispatch = useDispatch();
   const username = useSelector((state) => state.signUp.signUpUsername);
   const password = useSelector((state) => state.signUp.signUpPassword);
-  const passwordRepeat = useSelector(
-    (state) => state.signUp.signUpPasswordRepeat
-  );
   const firstName = useSelector((state) => state.signUp.signUpFirstName);
   const lastName = useSelector((state) => state.signUp.signUpLastName);
   const age = useSelector((state) => state.signUp.signUpAge);
+  const redirect = useSelector((state) => state.signUp.signUpRedirect);
+
+  const singUpClick = () => {
+    let i = Math.floor(Math.random() * 10000);
+    axios
+      .post("/signup", { i, username, password, firstName, lastName, age })
+      .then((res) => {
+        if (res.data.reg) {
+          dispatch(setRedirectThunk(true));
+          return <Redirect to="./Projects" />;
+        }
+      });
+  };
+
+  if (redirect) {
+    return <Redirect to="./Projects" />;
+  }
 
   return (
     <section className="sign-up">
       <div className="green-blur" id="green-blur__sign-up"></div>
-      <form id="sign-up-form">
+      <form id="sign-up-form" onSubmit={singUpClick}>
         <label className="sign-up-form__label">Username</label>
         <input
           id="sign-up-form__username"

@@ -34,7 +34,7 @@ function Collage() {
 
   const btnClick = () => {
     axios.post("/addCollage", { image, tittle, description }).then((res) => {
-      dispatch(setCollageThunk(res.data.collage));
+      dispatch(setCollageThunk(res.data));
     });
   };
   return (
