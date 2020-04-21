@@ -25,13 +25,7 @@ function SignUp() {
 
   const singUpClick = (event) => {
     let i = Math.floor(Math.random() * 10000);
-    axios
-      .post("/signup", { i, username, password, firstName, lastName, age })
-      .then((res) => {
-        if (res.data.reg) {
-          dispatch(setRedirectThunk(true));
-        }
-      });
+    axios.post("/signup", { i, username, password, firstName, lastName, age });
     dispatch(setRedirectThunk(true));
   };
 
