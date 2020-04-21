@@ -11,6 +11,7 @@ import {
   setAgeThunk,
   setRedirectThunk,
 } from "../redux/actions/signUpActions";
+import { setAuthorisedThunk } from "../redux/actions/loginActions";
 import axios from "axios";
 
 function SignUp() {
@@ -22,26 +23,32 @@ function SignUp() {
   const age = useSelector((state) => state.signUp.signUpAge);
   const redirect = useSelector((state) => state.signUp.signUpRedirect);
 
-  const singUpClick = () => {
+  const singUpClick = (event) => {
     let i = Math.floor(Math.random() * 10000);
     axios
       .post("/signup", { i, username, password, firstName, lastName, age })
       .then((res) => {
         if (res.data.reg) {
           dispatch(setRedirectThunk(true));
-          return <Redirect to="./Projects" />;
         }
       });
+    dispatch(setRedirectThunk(true));
   };
 
   if (redirect) {
+    dispatch(setAuthorisedThunk(true));
     return <Redirect to="./Projects" />;
   }
 
   return (
     <section className="sign-up">
       <div className="green-blur" id="green-blur__sign-up"></div>
-      <form id="sign-up-form" onSubmit={singUpClick}>
+      <form
+        id="sign-up-form"
+        onSubmit={(event) => {
+          singUpClick(event);
+        }}
+      >
         <label className="sign-up-form__label">Username</label>
         <input
           id="sign-up-form__username"

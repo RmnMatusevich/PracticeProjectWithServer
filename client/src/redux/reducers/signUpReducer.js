@@ -15,7 +15,7 @@ const initialState = {
   signUpFirstName: "",
   signUpLastName: "",
   signUpAge: "",
-  singUpRedirect: false,
+  signUpRedirect: false,
 };
 
 const signUpReducer = (state = initialState, action) => {
@@ -33,7 +33,7 @@ const signUpReducer = (state = initialState, action) => {
     case ACTION_CHANGE_SIGN_UP_AGE:
       return { ...state, signUpAge: action.age };
     case ACTION_CHANGE_SIGN_UP_REDIRECT:
-      return { ...state, singUpRedirect: action.red };
+      return { ...state, signUpRedirect: action.red };
     default:
       return state;
   }
