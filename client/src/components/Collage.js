@@ -11,7 +11,6 @@ import {
 } from "../redux/actions/collageActions";
 import obj from "./collageObject";
 import getCollageAPI from "../requests/getCollageAPI";
-
 import axios from "axios";
 
 function Collage() {

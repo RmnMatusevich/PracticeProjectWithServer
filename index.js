@@ -2,42 +2,10 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const mysql = require("mysql");
 const obj = require("./client/src/components/collageObject");
+const connection = require("./data/connection");
 
 const jsonObj = JSON.stringify(obj.collage);
-
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "qwerty1234",
-  port: 3306,
-  database: "nodespring",
-});
-connection.connect((err) => {
-  if (err) throw err;
-  console.log("Connection success!");
-  connection.query("CREATE DATABASE IF NOT EXISTS `nodespring`", function (
-    err,
-    result
-  ) {
-    if (err) throw err;
-    console.log("Database created");
-  });
-
-  const sqlCreateTable =
-    "CREATE TABLE IF NOT EXISTS users (id INT, username varchar(50) NOT NULL, password varchar(255) NOT NULL, firstName varchar(100) NOT NULL, lastName varchar(100) NOT NULL, age int(11) NOT NULL, objCollage TEXT)";
-  connection.query(sqlCreateTable, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
-  });
-
-  connection.query("SELECT * FROM users", function (err, result, fields) {
-    if (err) throw err;
-    //console.log(result);
-  });
-});
-
 const app = express();
 
 app.use(
@@ -49,12 +17,7 @@ app.use(
 );
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, "/client/public/index.html")));
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/public/index.html"));
-});
 
 app.get("/getCollage", (req, res) => {
   console.log(req);
@@ -90,6 +53,7 @@ app.post("/searchCollage", (req, res) => {
   }
   res.json(newCollageObj);
 });
+
 app.post("/addCollage", (req, res) => {
   obj.collage.push({
     src: req.body.image,
@@ -99,18 +63,12 @@ app.post("/addCollage", (req, res) => {
   connection.query(
     `UPDATE users SET objCollage = '${JSON.stringify(
       obj.collage
-    )}' WHERE objCollage = '${jsonObj}'`
+    )}' WHERE objCollage = '${jsonObj}'`,
+    function (err, result, fields) {
+      if (err) throw err;
+      res.json(obj.collage);
+    }
   );
-  res.json(obj.collage);
-});
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => {
-  console.log("App is listening on port " + port);
-});
-
-app.get("/express_backend", (req, res) => {
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
 });
 
 app.post("/signup", (req, res) => {
@@ -121,4 +79,10 @@ app.post("/signup", (req, res) => {
     console.log("New user added!");
   });
   res.json({ reg: true });
+});
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+  console.log("App is listening on port " + port);
 });
