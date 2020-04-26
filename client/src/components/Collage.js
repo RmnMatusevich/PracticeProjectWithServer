@@ -10,7 +10,7 @@ import {
   setTittleThunk,
 } from "../redux/actions/collageActions";
 import obj from "./collageObject";
-import getCollageAPI from "../requests/getCollageAPI";
+import getCollageAPI from "../api/collageApi";
 import axios from "axios";
 
 function Collage() {
@@ -46,6 +46,20 @@ function Collage() {
           onChange={(event) => handleChange(event.target.value)}
         />
       </form>
+
+      <div className="collage">
+        {collage.map((i) => {
+          return (
+            <CollageItem
+              src={i.src}
+              tittle={i.tittle}
+              description={i.description}
+              key={obj.collage.indexOf(i) * Math.random()}
+            />
+          );
+        })}
+      </div>
+      <h3 id="add-item">Add Item</h3>
       <form id="adding-collage">
         <label>Upload photo</label>
         <input
@@ -73,19 +87,7 @@ function Collage() {
         >
           Submit
         </button>
-      </form>{" "}
-      <div className="collage">
-        {collage.map((i) => {
-          return (
-            <CollageItem
-              src={i.src}
-              tittle={i.tittle}
-              description={i.description}
-              key={obj.collage.indexOf(i) * Math.random()}
-            />
-          );
-        })}
-      </div>
+      </form>
     </React.Fragment>
   );
 }

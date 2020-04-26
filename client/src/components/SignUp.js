@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-
+import singupApi from "../api/singupApi";
 import {
   setUsernameThunk,
   setPasswordThunk,
@@ -12,7 +12,6 @@ import {
   setRedirectThunk,
 } from "../redux/actions/signUpActions";
 import { setAuthorisedThunk } from "../redux/actions/loginActions";
-import axios from "axios";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -24,8 +23,7 @@ function SignUp() {
   const redirect = useSelector((state) => state.signUp.signUpRedirect);
 
   const singUpClick = (event) => {
-    let i = Math.floor(Math.random() * 10000);
-    axios.post("/signup", { i, username, password, firstName, lastName, age });
+    singupApi(username, password, firstName, lastName, age);
     dispatch(setRedirectThunk(true));
   };
 

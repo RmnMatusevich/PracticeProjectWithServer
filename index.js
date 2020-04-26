@@ -72,7 +72,7 @@ app.post("/addCollage", (req, res) => {
 });
 
 app.post("/signup", (req, res) => {
-  const sqlInsert = `INSERT INTO users (id, username, password, firstName, lastName, age, objCollage) VALUES (${req.body.i}, '${req.body.username}', '${req.body.password}', '${req.body.firstName}', '${req.body.lastName}', ${req.body.age}, '${jsonObj}')`;
+  const sqlInsert = `INSERT INTO users (username, password, firstName, lastName, age, objCollage) VALUES ('${req.body.username}', '${req.body.password}', '${req.body.firstName}', '${req.body.lastName}', ${req.body.age}, '${jsonObj}')`;
   connection.query(sqlInsert, function (err, result) {
     if (err) throw err;
 

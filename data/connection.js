@@ -20,7 +20,7 @@ connection.connect((err) => {
   });
 
   const sqlCreateTable =
-    "CREATE TABLE IF NOT EXISTS users (id INT, username varchar(50) NOT NULL, password varchar(255) NOT NULL, firstName varchar(100) NOT NULL, lastName varchar(100) NOT NULL, age int(11) NOT NULL, objCollage TEXT)";
+    "CREATE TABLE IF NOT EXISTS users (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, username varchar(50) NOT NULL, password varchar(255) NOT NULL, firstName varchar(100) NOT NULL, lastName varchar(100) NOT NULL, age int(11) NOT NULL, objCollage TEXT)";
   connection.query(sqlCreateTable, function (err, result) {
     if (err) throw err;
     console.log("Table created");
