@@ -9,7 +9,7 @@ nav {
   position: relative;
   height: 85px;
   background-color: rgba(38, 38, 38, 0.97);
-  margin-bottom: 150px;
+  margin-bottom: 110px;
 }
 
 .logo {
@@ -93,28 +93,33 @@ nav {
 .main-projects__title {
   font-family: "Open Sans", sans-serif;
   font-size: 32px;
-  margin-bottom: 20px;
   font-weight: 600;
+  text-align: center;
+  width: 80%;
+  margin: 15px auto;
 }
 
 .main-projects__description {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   margin-bottom: 80px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 #search {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  width: 50%;
-  height: 140px;
+  width: 100%;
+  height: 150px;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 35px;
 }
 
 #search-label {
-  font-size: 38px;
+  font-size: 32px;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
 }
@@ -122,9 +127,12 @@ nav {
 #search-input {
   font-family: "Open Sans", sans-serif;
   font-size: 36px;
+  width: 80%;
+  margin: 0 auto;
   height: 40px;
-  border: 2px solid black;
-  border-radius: 5px;
+  border: 1px solid #131313;
+  box-sizing: border-box;
+  border-radius: 12px;
   outline: none;
   transition: 0.3s ease;
 }
@@ -148,7 +156,9 @@ nav {
 .collage-item {
   width: 350px;
   height: 440px;
-  border: 1px solid rgba(100, 100, 100, 0.77);
+  border: 1px solid #131313;
+  box-sizing: border-box;
+  border-radius: 5px;
   margin-bottom: 15px;
   margin-left: 7.5px;
   margin-right: 7.5px;
@@ -319,27 +329,35 @@ nav {
   text-align: center;
 }
 
+#add-item {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 #adding-collage {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   text-align: center;
-  height: 500px;
+  height: 440px;
   width: 100%;
-  border: 2px solid black;
-  border-radius: 10px 10px 80px 80px;
   margin-bottom: 20px;
 }
 #adding-collage label {
-  font-size: 26px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
   text-align: center;
 }
 #photo-src {
+  font-family: "Open Sans", sans-serif;
   height: 40px;
-  border-radius: 15px;
-  border: 2px solid black;
+  border: 1px solid #131313;
+  box-sizing: border-box;
+  border-radius: 12px;
   font-size: 26px;
   width: 80%;
   margin: 0 auto;
@@ -352,9 +370,11 @@ nav {
 }
 
 #title-input {
+  font-family: "Open Sans", sans-serif;
   height: 40px;
-  border-radius: 15px;
-  border: 2px solid black;
+  border: 1px solid #131313;
+  box-sizing: border-box;
+  border-radius: 12px;
   font-size: 26px;
   width: 80%;
   margin: 0 auto;
@@ -367,14 +387,17 @@ nav {
 }
 
 #description-input {
+  font-family: "Open Sans", sans-serif;
   height: 40px;
-  border-radius: 15px;
-  border: 2px solid black;
+  border: 1px solid #131313;
+  box-sizing: border-box;
+  border-radius: 12px;
   font-size: 26px;
   width: 80%;
   margin: 0 auto;
   outline: none;
   transition: 0.3s ease;
+  margin-bottom: 30px;
 }
 
 #description-input:focus {
@@ -382,13 +405,15 @@ nav {
 }
 
 #submit-button {
-  width: 200px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 26px;
+  color: white;
+  width: 180px;
   height: 50px;
-  border: 2px solid black;
-  border-radius: 20px;
+  background: #7fde6f;
+  border-radius: 36px;
   margin: 0 auto;
   margin-bottom: 10px;
-  font-size: 26px;
   outline: none;
 }
 
