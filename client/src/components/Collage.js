@@ -42,7 +42,7 @@ function Collage() {
 
   return (
     <React.Fragment>
-      <Modal isOpen={!authorised}>
+      <Modal isOpen={!authorised} overlayClassName="overlay">
         <AuthModal />
       </Modal>
 

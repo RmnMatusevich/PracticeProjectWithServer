@@ -1,15 +1,27 @@
 import React from "react";
+import { useState } from "react";
 import { Redirect } from "react-router-dom";
 
 function Modal() {
-  const redirirect = () => {
-    return <Redirect to="./SignUp" />;
+  const [red, setRed] = useState(false);
+
+  if (red) {
+    return <Redirect to="./" />;
+  }
+
+  const redirectClick = () => {
+    setRed(!red);
+    if (red) {
+      return <Redirect to="./" />;
+    }
   };
 
   return (
     <div className="modal">
-      <h3>You are not log in!</h3>
-      <button onClick={redirirect()}>Log in</button>
+      <h3 className="modal-alert">You are not log in!</h3>
+      <button className="modal-button" onClick={redirectClick}>
+        Log in
+      </button>
     </div>
   );
 }
