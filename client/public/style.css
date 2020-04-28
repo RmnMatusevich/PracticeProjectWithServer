@@ -96,7 +96,7 @@ nav {
   font-weight: 600;
   text-align: center;
   width: 80%;
-  margin: 15px auto;
+  margin: 25px auto;
 }
 
 .main-projects__description {
@@ -410,7 +410,7 @@ nav {
   color: white;
   width: 180px;
   height: 50px;
-  background: #7fde6f;
+  background: #4fca08;
   border-radius: 36px;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -643,4 +643,40 @@ nav {
   border-radius: 10px;
   transition: 0.3s ease;
   margin-bottom: 50px;
+}
+
+/*      Modal       */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  background-color: #4fca08;
+}
+.modal {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modal-alert {
+  font-family: "Open Sans", sans-serif;
+  font-size: 44px;
+  text-align: center;
+}
+
+.modal-button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 36px;
+  color: white;
+  width: 220px;
+  height: 70px;
+  background: #4fca08;
+  border-radius: 36px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  outline: none;
 }
