@@ -16,11 +16,15 @@ function Login() {
   const username = useSelector((state) => state.login.loginUsername);
   const password = useSelector((state) => state.login.loginPassword);
   const redirect = useSelector((state) => state.login.loginRedirect);
+
   const click = (event) => {
     event.preventDefault();
     axios.post("/login", { username, password }).then((res) => {
       if (res.data.auth) {
+        localStorage.setItem("auth", true);
         dispatch(setAuthorisedThunk(true));
+      } else {
+        localStorage.setItem("auth", false);
       }
     });
   };

@@ -1,5 +1,5 @@
 const initialState = {
-  loginAuthorised: false,
+  loginAuthorised: JSON.parse(localStorage.getItem("auth")),
   loginUsername: "",
   loginPassword: "",
 };

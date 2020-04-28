@@ -2,6 +2,7 @@ import React from "react";
 import CollageItem from "./CollageItem";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Modal from "react-modal";
 import {
   setCollageThunk,
   setDescriptionThunk,
@@ -11,7 +12,9 @@ import {
 } from "../redux/actions/collageActions";
 import obj from "./collageObject";
 import getCollageAPI from "../api/collageApi";
+import AuthModal from "./Modal";
 import axios from "axios";
+Modal.setAppElement("#root");
 
 function Collage() {
   const dispatch = useDispatch();
@@ -19,7 +22,7 @@ function Collage() {
   const tittle = useSelector((state) => state.collage.collageTittle);
   const description = useSelector((state) => state.collage.collageDescription);
   const collage = useSelector((state) => state.collage.collageCollage);
-
+  const authorised = useSelector((state) => state.login.loginAuthorised);
   useEffect(() => {
     getCollageAPI().then((res) => dispatch(setCollageThunk(res.collage)));
   }, []);
@@ -36,8 +39,13 @@ function Collage() {
       dispatch(setCollageThunk(res.data));
     });
   };
+
   return (
     <React.Fragment>
+      <Modal isOpen={!authorised}>
+        <AuthModal />
+      </Modal>
+
       <form id="search">
         <label id="search-label">Search</label>
         <input
