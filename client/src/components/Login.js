@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setAuthorisedThunk,
   setPasswordThunk,
   setUsernameThunk,
-  setRedirectThunk,
 } from "../redux/actions/loginActions";
 import loginApi from "../api/loginApi";
 
@@ -14,7 +13,7 @@ function Login() {
   const authorised = useSelector((state) => state.login.loginAuthorised);
   const username = useSelector((state) => state.login.loginUsername);
   const password = useSelector((state) => state.login.loginPassword);
-  const redirect = useSelector((state) => state.login.loginRedirect);
+  const [redirect, setRedirect] = useState(false);
 
   const click = (event) => {
     event.preventDefault();
@@ -33,7 +32,7 @@ function Login() {
   }
   const signUpRedirect = (event) => {
     event.preventDefault();
-    dispatch(setRedirectThunk(true));
+    setRedirect(true);
   };
   if (redirect) {
     return <Redirect to="./SignUp" />;

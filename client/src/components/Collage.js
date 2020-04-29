@@ -22,6 +22,7 @@ function Collage() {
   const description = useSelector((state) => state.collage.collageDescription);
   const collage = useSelector((state) => state.collage.collageCollage);
   const authorised = useSelector((state) => state.login.loginAuthorised);
+
   useEffect(() => {
     collageApi
       .getCollage()

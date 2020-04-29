@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import singupApi from "../api/singupApi";
@@ -9,7 +9,6 @@ import {
   setFirstNameThunk,
   setLastNameThunk,
   setAgeThunk,
-  setRedirectThunk,
 } from "../redux/actions/signUpActions";
 import { setAuthorisedThunk } from "../redux/actions/loginActions";
 
@@ -20,11 +19,12 @@ function SignUp() {
   const firstName = useSelector((state) => state.signUp.signUpFirstName);
   const lastName = useSelector((state) => state.signUp.signUpLastName);
   const age = useSelector((state) => state.signUp.signUpAge);
-  const redirect = useSelector((state) => state.signUp.signUpRedirect);
+  const [redirect, setRedirect] = useState(false);
+  //const redirect = useSelector((state) => state.signUp.signUpRedirect);
 
   const singUpClick = (event) => {
     singupApi.singup(username, password, firstName, lastName, age);
-    dispatch(setRedirectThunk(true));
+    setRedirect(true);
   };
 
   if (redirect) {

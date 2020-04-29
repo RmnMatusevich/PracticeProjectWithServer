@@ -12,8 +12,6 @@ const loginReducer = (state = initialState, action) => {
       return { ...state, loginUsername: action.username };
     case "ACTION_CHANGE_PASSWORD":
       return { ...state, loginPassword: action.password };
-    case "ACTION_CHANGE_REDIRECT":
-      return { ...state, loginRedirect: action.auth };
     default:
       return state;
   }

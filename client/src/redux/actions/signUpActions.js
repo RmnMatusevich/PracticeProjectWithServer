@@ -5,7 +5,6 @@ import {
   ACTION_CHANGE_SIGN_UP_FIRST_NAME,
   ACTION_CHANGE_SIGN_UP_LAST_NAME,
   ACTION_CHANGE_SIGN_UP_AGE,
-  ACTION_CHANGE_SIGN_UP_REDIRECT,
 } from "../globalVariables";
 
 function setUsernameThunk(username) {
@@ -57,14 +56,7 @@ function setAgeThunk(age) {
     console.log(`After update ${getState().signUp.signUpAge}`);
   };
 }
-function setRedirectThunk(red) {
-  return (dispatch, getState) => {
-    console.log(`Action type: ${setRedirect(red).type}`);
-    console.log(`Before update ${getState().signUp.signUpRedirect}`);
-    dispatch(setRedirect(red));
-    console.log(`After update ${getState().signUp.signUpRedirect}`);
-  };
-}
+
 function setUsername(username) {
   return {
     type: ACTION_CHANGE_SIGN_UP_USERNAME,
@@ -105,12 +97,6 @@ function setAge(age) {
     age,
   };
 }
-function setRedirect(red) {
-  return {
-    type: ACTION_CHANGE_SIGN_UP_REDIRECT,
-    red,
-  };
-}
 
 export {
   setUsernameThunk,
@@ -119,5 +105,4 @@ export {
   setFirstNameThunk,
   setLastNameThunk,
   setAgeThunk,
-  setRedirectThunk,
 };
