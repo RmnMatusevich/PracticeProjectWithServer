@@ -23,7 +23,7 @@ function SignUp() {
   const redirect = useSelector((state) => state.signUp.signUpRedirect);
 
   const singUpClick = (event) => {
-    singupApi(username, password, firstName, lastName, age);
+    singupApi.singup(username, password, firstName, lastName, age);
     dispatch(setRedirectThunk(true));
   };
 

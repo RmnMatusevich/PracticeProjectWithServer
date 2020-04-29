@@ -11,9 +11,6 @@ function Modal() {
 
   const redirectClick = () => {
     setRed(!red);
-    if (red) {
-      return <Redirect to="./" />;
-    }
   };
 
   return (

@@ -11,9 +11,8 @@ import {
   setTittleThunk,
 } from "../redux/actions/collageActions";
 import obj from "./collageObject";
-import getCollageAPI from "../api/collageApi";
 import AuthModal from "./Modal";
-import axios from "axios";
+import collageApi from "../api/collageApi";
 Modal.setAppElement("#root");
 
 function Collage() {
@@ -24,18 +23,20 @@ function Collage() {
   const collage = useSelector((state) => state.collage.collageCollage);
   const authorised = useSelector((state) => state.login.loginAuthorised);
   useEffect(() => {
-    getCollageAPI().then((res) => dispatch(setCollageThunk(res.collage)));
+    collageApi
+      .getCollage()
+      .then((res) => dispatch(setCollageThunk(res.collage)));
   }, []);
 
   const handleChange = (input) => {
     dispatch(setUserInputThunk(input));
-    axios.post("/searchCollage", { input }).then((res) => {
+    collageApi.searchCollage(input).then((res) => {
       dispatch(setCollageThunk(res.data));
     });
   };
 
   const btnClick = () => {
-    axios.post("/addCollage", { image, tittle, description }).then((res) => {
+    collageApi.addCollage(image, tittle, description).then((res) => {
       dispatch(setCollageThunk(res.data));
     });
   };

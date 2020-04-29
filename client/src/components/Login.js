@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -8,7 +7,7 @@ import {
   setUsernameThunk,
   setRedirectThunk,
 } from "../redux/actions/loginActions";
-import axios from "axios";
+import loginApi from "../api/loginApi";
 
 function Login() {
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ function Login() {
 
   const click = (event) => {
     event.preventDefault();
-    axios.post("/login", { username, password }).then((res) => {
+    loginApi.login(username, password).then((res) => {
       if (res.data.auth) {
         localStorage.setItem("auth", true);
         dispatch(setAuthorisedThunk(true));
@@ -28,6 +27,7 @@ function Login() {
       }
     });
   };
+
   if (authorised) {
     return <Redirect to="./Projects" />;
   }
