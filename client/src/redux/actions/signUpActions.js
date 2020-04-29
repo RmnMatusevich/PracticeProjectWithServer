@@ -6,6 +6,13 @@ import {
   ACTION_CHANGE_SIGN_UP_LAST_NAME,
   ACTION_CHANGE_SIGN_UP_AGE,
 } from "../globalVariables";
+import signupApi from "../../api/singupApi";
+
+function setNewUserData(username, password, firstName, lastName, age) {
+  return (dispatch) => {
+    signupApi.singup(username, password, firstName, lastName, age);
+  };
+}
 
 function setUsernameThunk(username) {
   return (dispatch, getState) => {
@@ -105,4 +112,5 @@ export {
   setFirstNameThunk,
   setLastNameThunk,
   setAgeThunk,
+  setNewUserData,
 };

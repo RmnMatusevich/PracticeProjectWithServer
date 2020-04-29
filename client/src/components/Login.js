@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  setAuthorisedThunk,
   setPasswordThunk,
   setUsernameThunk,
+  setUserDataThunk,
 } from "../redux/actions/loginActions";
-import loginApi from "../api/loginApi";
 
 function Login() {
   const dispatch = useDispatch();
@@ -17,14 +16,7 @@ function Login() {
 
   const click = (event) => {
     event.preventDefault();
-    loginApi.login(username, password).then((res) => {
-      if (res.data.auth) {
-        localStorage.setItem("auth", true);
-        dispatch(setAuthorisedThunk(true));
-      } else {
-        localStorage.setItem("auth", false);
-      }
-    });
+    dispatch(setUserDataThunk(username, password));
   };
 
   if (authorised) {

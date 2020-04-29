@@ -3,6 +3,21 @@ import {
   ACTION_CHANGE_PASSWORD,
   ACTION_CHANGE_USERNAME,
 } from "../globalVariables";
+import loginApi from "../../api/loginApi";
+
+function setUserDataThunk(username, password) {
+  return (dispatch) => {
+    loginApi.login(username, password).then((res) => {
+      if (res.data.auth) {
+        localStorage.setItem("auth", true);
+        dispatch(setAuthorisedThunk(true));
+      } else {
+        dispatch(setAuthorisedThunk(false));
+        localStorage.setItem("auth", false);
+      }
+    });
+  };
+}
 
 function setUsernameThunk(username) {
   return (dispatch, getState) => {
@@ -50,4 +65,9 @@ function setAuthorised(auth) {
   };
 }
 
-export { setUsernameThunk, setPasswordThunk, setAuthorisedThunk };
+export {
+  setUsernameThunk,
+  setPasswordThunk,
+  setAuthorisedThunk,
+  setUserDataThunk,
+};
